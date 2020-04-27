@@ -22,7 +22,7 @@ public:
 struct Attempt
 {
     /* data */
-    std::auto_ptr<Person> person; 
+    std::auto_ptr<Person> person;
     Question NextQuestion(); // TODO: alexEP
     uint8_t currentQuestion;
     vector<Answer> answers;
@@ -38,12 +38,16 @@ struct Question
     string first;
     string second;
     string third;
-    uint8_t number; 
+    uint8_t number;
 };
 
 struct Person
 {
-    //TODO: alexEP
+    string lastName;
+    string name;
+    string email;
+    string birthDate;
+    string testDate;
 };
 
 
