@@ -6,32 +6,38 @@
 #include <string>
 
 #include <Storage.hpp>
+
+typedef Answer uint8_t;
+
 class Tester
 {
 private:
     /* data */
     std::auto_ptr<Storage> storage;
+    Attempt* currentAttempt; 
 public:
     Tester(/* args */);
     ~Tester();
-    Attempt* AddAttempt(); 
-    sting GetInstruction();
-    void SaveAttempt();
+    Attempt* AddAttempt();
+    Attempt* GetAttempt();
+    static const sting& GetInstruction();
+    void SaveCurrentAttempt();
 };
 
-struct Attempt
+class Attempt
 {
+private:
     /* data */
     std::auto_ptr<Person> person;
-    Question NextQuestion(); // TODO: alexEP
     uint8_t currentQuestion;
     vector<Answer> answers;
+public:
+    Attempt();
+    ~Attempt();
+    Question* NextQuestion(); // TODO: alexEP
+    void GiveAnswer(Answer answer); // TODO: alexEP 
 };
 
-struct Answer
-{
-    uint8_t Answer;
-};
 
 struct Question
 {
