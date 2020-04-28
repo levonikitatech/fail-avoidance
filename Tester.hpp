@@ -14,9 +14,9 @@ private:
 public:
     Tester(/* args */);
     ~Tester();
-    Attempt* AddAttempt();
+    Attempt* AddAttempt(); 
     sting GetInstruction();
-    Save
+    void SaveAttempt();
 };
 
 struct Attempt
@@ -46,8 +46,8 @@ struct Person
     string lastName;
     string name;
     string email;
-    string birthDate;
-    string testDate;
+    int64_t birthDate;
+    int64_t testDate;
 };
 
 
