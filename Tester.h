@@ -24,10 +24,11 @@ extern "C"
     extern const char* EXPORTCALL TesterGetInstruction(TesterHandle);
     extern void EXPORTCALL TesterSaveCurrentAttempt(TesterHandle);
     extern QuestionHandle EXPORTCALL AttemptNextQuestion(AttemptHandle);
+    extern void EXPORTCALL AttemptGiveAnswer(AttemptHandle);
     extern const char* EXPORTCALL QuestionGetAnswerString(QuestionHandle, uint8_t);
     extern uint8_t EXPORTCALL QuestionGetNumber(QuestionHandle); 
 #ifdef __cplusplus
 }
 #endif
 
-//
+#endif //TESTER_H

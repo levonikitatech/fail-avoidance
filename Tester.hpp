@@ -5,22 +5,24 @@
 #include <stdint.h>
 #include <string>
 
-#include <Storage.hpp>
+#include "Storage.hpp"
 
-typedef Answer uint8_t;
+using namespace std;
+typedef uint8_t Answer;
 
 class Tester
 {
 private:
     /* data */
+    static const string instruction = "Some instruction"; 
     std::auto_ptr<Storage> storage;
-    Attempt* currentAttempt; 
+    Attempt* currentAttempt = nullptr; 
 public:
     Tester(/* args */);
     ~Tester();
     Attempt* AddAttempt();
     Attempt* GetAttempt();
-    static const sting& GetInstruction();
+    static const string& GetInstruction();
     void SaveCurrentAttempt();
 };
 
@@ -55,8 +57,5 @@ struct Person
     int64_t birthDate;
     int64_t testDate;
 };
-
-
-
 
 #endif

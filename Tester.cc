@@ -21,6 +21,9 @@ extern "C"  {
     QuestionHandle EXPORTCALL AttemptNextQuestion(AttemptHandle handle){
         return handle->NextQuestion();
     };
+    void EXPORTCALL AttemptGiveAnswer(AttemptHandle handle, uint8_t answer){
+        handle->GiveAnswer(answer);
+    }
     const char* EXPORTCALL QuestionGetAnswerString(QuestionHandle handle, uint8_t answer){
         if (answer == 1) return handle->first.c_str();
         if (answer == 2) return handle->second.c_str();
