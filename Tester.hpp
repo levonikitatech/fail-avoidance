@@ -5,52 +5,25 @@
 #include <stdint.h>
 #include <string>
 
-#include <Storage.hpp>
+#include "Attempt.hpp"
+#include "Storage.hpp"
+
+using namespace std;
+
 class Tester
 {
 private:
     /* data */
+    static const string INSTRUCTION; 
     std::auto_ptr<Storage> storage;
+    Attempt* currentAttempt = nullptr; 
 public:
     Tester(/* args */);
     ~Tester();
-    Attempt* AddAttempt(); 
-    sting GetInstruction();
-    void SaveAttempt();
+    Attempt* AddAttempt();
+    Attempt* GetAttempt();
+    static const string& GetInstruction();
+    void SaveCurrentAttempt();
 };
-
-struct Attempt
-{
-    /* data */
-    std::auto_ptr<Person> person;
-    Question NextQuestion(); // TODO: alexEP
-    uint8_t currentQuestion;
-    vector<Answer> answers;
-};
-
-struct Answer
-{
-    uint8_t Answer;
-};
-
-struct Question
-{
-    string first;
-    string second;
-    string third;
-    uint8_t number;
-};
-
-struct Person
-{
-    string lastName;
-    string name;
-    string email;
-    int64_t birthDate;
-    int64_t testDate;
-};
-
-
-
 
 #endif
