@@ -2,6 +2,7 @@
 #define TESTER_H
 #ifdef __cplusplus
 #include "Tester.hpp"
+#include "Question.hpp"
 #define EXPORTCALL __attribute__((stdcall))
 typedef Tester *TesterHandle;
 typedef Attempt *AttemptHandle;
@@ -12,6 +13,8 @@ typedef struct Attempt *AttemptHandle;
 typedef struct Question *QuestionHandle;
 #define EXPORTCALL
 #endif
+
+#include <stdint.h>
 
 #ifdef __cplusplus
 extern "C"
@@ -24,7 +27,7 @@ extern "C"
     extern const char* EXPORTCALL TesterGetInstruction(TesterHandle);
     extern void EXPORTCALL TesterSaveCurrentAttempt(TesterHandle);
     extern QuestionHandle EXPORTCALL AttemptNextQuestion(AttemptHandle);
-    extern void EXPORTCALL AttemptGiveAnswer(AttemptHandle);
+    extern void EXPORTCALL AttemptGiveAnswer(AttemptHandle, uint8_t);
     extern const char* EXPORTCALL QuestionGetAnswerString(QuestionHandle, uint8_t);
     extern uint8_t EXPORTCALL QuestionGetNumber(QuestionHandle); 
 #ifdef __cplusplus
