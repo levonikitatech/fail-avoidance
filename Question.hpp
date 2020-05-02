@@ -5,11 +5,10 @@
 
 struct Question
 {
-    string first;
-    string second;
-    string third;
+    std::string first;
+    std::string second;
+    std::string third;
     uint8_t number;
 };
 
 #endif // QUESTION_HPP
-
