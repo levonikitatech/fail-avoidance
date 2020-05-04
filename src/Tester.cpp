@@ -1,6 +1,6 @@
 #include "Tester.hpp"
 
-static const string Tester::INSTRUCTION = "Some instruction";
+const string Tester::INSTRUCTION = "Some instruction";
 
 Tester::Tester(){
 
@@ -20,8 +20,8 @@ Attempt* Tester::GetAttempt(){
     return this->currentAttempt;
 }
 
-static const string& Tester::GetInstruction(){
-    return this->instruction;
+const string& Tester::GetInstruction(){
+    return INSTRUCTION;
 }
 
 void Tester::SaveCurrentAttempt(){

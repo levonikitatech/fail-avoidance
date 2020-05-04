@@ -3,20 +3,19 @@
 #include <memory>
 #include <stdint.h>
 #include <string>
+#include <vector>
 
 #include "Answer.hpp"
 #include "Person.hpp"
 #include "Question.hpp"
 
-using namespace std;
-
 class Attempt
 {
 private:
     /* data */
-    auto_ptr<Person> person;
+    std::auto_ptr<Person> person;
     uint8_t currentQuestion;
-    vector<Answer> answers;
+    std::vector<Answer> answers;
 public:
     Attempt();
     ~Attempt();
