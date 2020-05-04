@@ -1,0 +1,9 @@
+Tester_cc.o
+Tester_c.o
+libtester.so
+cmake_install.cmake
+CMakeCache.txt
+Makefile
+CMakeFiles
+bin
+tests/main.cpp
