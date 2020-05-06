@@ -7,3 +7,13 @@ Makefile
 CMakeFiles
 bin
 tests/main.cpp
+libtester.so
+UTester.o
+UTester.ppu
+backup
+build
+lib/x86_64-linux
+Tester_c
+tester.o
+tester
+Attempt.o

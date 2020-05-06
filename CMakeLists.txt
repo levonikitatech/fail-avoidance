@@ -44,4 +44,25 @@ if (NEED_TEST)
     endif (CXXTEST_FOUND)
 endif (NEED_TEST)
 
-add_library( example SHARED ${SOURCE_LIB} )	
+add_custom_target(
+    Attempt_o ALL
+    COMMAND /usr/bin/g++ -fPIC -c ${CMAKE_HOME_DIRECTORY}/src/Attempt.cpp -o ${CMAKE_HOME_DIRECTORY}/Attempt.o
+    VERBATIM
+)
+
+add_custom_target(
+    Tester_c_ ALL
+    COMMAND /usr/bin/gcc -fPIC -x c -c ${CMAKE_HOME_DIRECTORY}/src/Tester.h -o ${CMAKE_HOME_DIRECTORY}/Tester_c.o
+    VERBATIM
+)
+add_library( Tester_cc OBJECT src/Tester.cc)
+set_property(TARGET Tester_cc PROPERTY POSITION_INDEPENDENT_CODE ON)
+add_library( Tester_c OBJECT src/Tester.h)
+set_property(TARGET Tester_c PROPERTY POSITION_INDEPENDENT_CODE ON)
+add_library( Tester_cpp OBJECT src/Tester.cpp )
+set_property(TARGET Tester_cpp PROPERTY POSITION_INDEPENDENT_CODE ON)
+add_library( Attempt_cpp OBJECT src/Attempt.cpp )
+set_property(TARGET Attempt_cpp PROPERTY POSITION_INDEPENDENT_CODE ON)
+
+add_library( tester SHARED  $<TARGET_OBJECTS:Tester_cc> $<TARGET_OBJECTS:Tester_c> $<TARGET_OBJECTS:Tester_cpp> $<TARGET_OBJECTS:Attempt_cpp>)	
+
