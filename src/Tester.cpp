@@ -1,6 +1,6 @@
 #include "Tester.hpp"
 
-const string Tester::INSTRUCTION = "Some instruction";
+const string Tester::INSTRUCTION = "Вам предлагается список слов из 30 строк, по 3 слова в каждой строке. В каждой строке выберите только одно из трех слов, которое наиболее точно Вас характеризует, и пометьте его.";
 
 Tester::Tester(){
 
@@ -27,4 +27,3 @@ const string& Tester::GetInstruction(){
 void Tester::SaveCurrentAttempt(){
 
 }
-

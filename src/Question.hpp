@@ -8,8 +8,7 @@ struct Question
     std::string first;
     std::string second;
     std::string third;
-    std::uint8_t number;
+    uint8_t number;
 };
 
 #endif // QUESTION_HPP
-
