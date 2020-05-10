@@ -16,3 +16,7 @@ Question* Attempt::NextQuestion(){
     question->number = 30;
     return question;
 }
+
+void Attempt::GiveAnswer(uint8_t answer){
+    
+}
