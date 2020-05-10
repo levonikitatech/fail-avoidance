@@ -12,7 +12,6 @@ UTester.o
 UTester.ppu
 backup
 build
-lib/x86_64-linux
 Tester_c
 tester.o
 tester

@@ -1,0 +1,20 @@
+object LoginForm: TLoginForm
+  Left = 200
+  Height = 400
+  Top = 200
+  Width = 300
+  Caption = 'Зарегистрируйтесь'
+  LCLVersion = '2.0.6.0'
+
+  object LastNameLabel: TLabel
+     AccessibleDescription = 'Метка поля'
+     AccessibleRole = larLabel
+     AccessibleValue = Caption
+     Left = 20
+     Top = 50
+     Height = 20
+     Width = 260
+     Caption = 'Фамилия'
+  end
+
+end
