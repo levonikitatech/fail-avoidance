@@ -1,20 +1,135 @@
 object LoginForm: TLoginForm
   Left = 200
-  Height = 400
+  Height = 260
   Top = 200
-  Width = 300
+  Width = 330
   Caption = 'Зарегистрируйтесь'
-  LCLVersion = '2.0.6.0'
-
-  object LastNameLabel: TLabel
-     AccessibleDescription = 'Метка поля'
-     AccessibleRole = larLabel
-     AccessibleValue = Caption
-     Left = 20
-     Top = 50
-     Height = 20
-     Width = 260
-     Caption = 'Фамилия'
+  ClientHeight = 400
+  ClientWidth = 260
+  LCLVersion = '2.0.8.0'
+  object InstructionLabel: TLabel
+    Left = 0
+    Height = 40
+    Top = 0
+    Width = 330
+    Caption = 'Введите данные тестируемого.'
+    ParentColor = False
+    Alignment = taCenter
+    Layout = tlCenter
+    OptimalFill = True
+    Font.Size = 14
   end
-
+  object LastNameLabel: TLabel
+    Left = 20
+    Height = 17
+    Top = 50
+    Width = 140
+    Caption = 'Фамилия'
+    ParentColor = False
+  end
+  object FirstNameLabel: TLabel
+    Left = 20
+    Height = 17
+    Top = 80
+    Width = 140
+    Caption = 'Имя'
+    ParentColor = False
+  end
+  object EmailLabel: TLabel
+    Left = 20
+    Height = 17
+    Top = 110
+    Width = 140
+    Caption = 'Email'
+    ParentColor = False
+  end
+  object BirthDateLabel: TLabel
+    Left = 20
+    Height = 17
+    Top = 140 
+    Width = 140
+    Caption = 'Дата рождения'
+    ParentColor = False
+  end
+  object TestDateLabel: TLabel
+    Left = 20
+    Height = 17
+    Top = 170 
+    Width = 140
+    Caption = 'Дата тестирования'
+    ParentColor = False
+  end
+  object LastNameEdit: TEdit
+    Left = 170
+    Height = 17
+    Top = 47 
+    Width = 140
+    Text = ''
+    ParentColor = False
+    TabOrder = 0
+  end 
+  object FirstNameEdit: TEdit
+    Left = 170
+    Height = 17
+    Top = 77 
+    Width = 140
+    Text = ''
+    ParentColor = False
+    TabOrder = 1
+  end
+  object EmailEdit: TEdit
+    Left = 170
+    Height = 17
+    Top = 107 
+    Width = 140
+    Text = ''
+    ParentColor = False
+    TabOrder = 2
+  end 
+  object BirthDTP: TDateTimePicker
+    Left = 170
+    Height = 23
+    Top = 135
+    Width = 140
+    CenturyFrom = 1941
+    MaxDate = 1893445200
+    MinDate = -1893445200
+    TabOrder = 3
+    TrailingSeparator = False
+    TextForNullDate = 'Пусто'
+    LeadingZeros = True
+    Kind = dtkDate
+    DateMode = dmComboBox
+    Date = 0 
+    UseDefaultSeparators = True
+    HideDateTimeParts = []
+  end
+  object TestDTP: TDateTimePicker
+    Left = 170
+    Height = 23
+    Top = 165
+    Width = 140
+    CenturyFrom = 1941
+    MaxDate = 1893445200
+    MinDate = -1893445200
+    TabOrder = 4
+    TrailingSeparator = False
+    TextForNullDate = 'Пусто'
+    LeadingZeros = True
+    Kind = dtkDate
+    DateMode = dmComboBox
+    Date = 0
+    UseDefaultSeparators = True
+    HideDateTimeParts = []
+  end
+  object ContinueButton: TButton
+      Left = 20
+      Height = 40
+      Top = 200
+      Width = 290
+      Caption = 'Далее>'
+      Font.Size = 12
+      TabOrder = 5
+      OnClick = OnContinueButtonClick
+  end
 end

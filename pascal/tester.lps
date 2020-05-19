@@ -3,35 +3,58 @@
   <ProjectSession>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="3">
+    <Units Count="6">
       <Unit0>
         <Filename Value="tester.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="7"/>
-        <CursorPos X="84" Y="16"/>
-        <UsageCount Value="20"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="15"/>
+        <CursorPos Y="22"/>
+        <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="ULoginForm.lfm"/>
-        <IsVisibleTab Value="True"/>
-        <UsageCount Value="10"/>
-        <Loaded Value="True"/>
+        <ComponentName Value="LoginForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="56"/>
+        <UsageCount Value="13"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit1>
       <Unit2>
         <Filename Value="ULoginForm.pas"/>
-        <EditorIndex Value="1"/>
-        <UsageCount Value="10"/>
-        <Loaded Value="True"/>
+        <ComponentName Value="LoginForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="37"/>
+        <CursorPos X="32" Y="37"/>
+        <UsageCount Value="13"/>
       </Unit2>
+      <Unit3>
+        <Filename Value="/usr/lib/lazarus/lcl/include/control.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3468"/>
+        <CursorPos Y="3474"/>
+        <UsageCount Value="11"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="datetimectrls.pas"/>
+        <UnitName Value="DateTimeCtrls"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="UInstructionForm.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2"/>
+        <CursorPos X="15" Y="12"/>
+        <UsageCount Value="11"/>
+      </Unit5>
     </Units>
-    <JumpHistory Count="1">
-      <Position1>
-        <Filename Value="ULoginForm.pas"/>
-      </Position1>
-    </JumpHistory>
+    <JumpHistory HistoryIndex="-1"/>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes Count="0" ActiveMode=""/>
