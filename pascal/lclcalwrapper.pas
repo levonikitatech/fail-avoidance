@@ -41,7 +41,7 @@ type
   private
     PrevCalendarWndProc: TWndMethod;
     CanClose: Boolean;
-    procedure LCLCalendarWrapperWndProc(var TheMessage: TLMessage);
+     procedure LCLCalendarWrapperWndProc(var TheMessage: TLMessage);
   public
     class function GetCalendarControlClass: TControlClass; override;
     procedure SetDate(Date: TDate); override;

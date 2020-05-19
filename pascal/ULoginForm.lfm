@@ -1,12 +1,24 @@
 object LoginForm: TLoginForm
   Left = 200
-  Height = 400
+  Height = 260
   Top = 200
   Width = 330
   Caption = 'Зарегистрируйтесь'
   ClientHeight = 400
-  ClientWidth = 330
+  ClientWidth = 260
   LCLVersion = '2.0.8.0'
+  object InstructionLabel: TLabel
+    Left = 0
+    Height = 40
+    Top = 0
+    Width = 330
+    Caption = 'Введите данные тестируемого.'
+    ParentColor = False
+    Alignment = taCenter
+    Layout = tlCenter
+    OptimalFill = True
+    Font.Size = 14
+  end
   object LastNameLabel: TLabel
     Left = 20
     Height = 17
@@ -91,7 +103,6 @@ object LoginForm: TLoginForm
     Date = 0 
     UseDefaultSeparators = True
     HideDateTimeParts = []
-    MonthNames = 'Long'
   end
   object TestDTP: TDateTimePicker
     Left = 170
@@ -110,6 +121,15 @@ object LoginForm: TLoginForm
     Date = 0
     UseDefaultSeparators = True
     HideDateTimeParts = []
-    MonthNames = 'Long'
+  end
+  object ContinueButton: TButton
+      Left = 20
+      Height = 40
+      Top = 200
+      Width = 290
+      Caption = 'Далее>'
+      Font.Size = 12
+      TabOrder = 5
+      OnClick = OnContinueButtonClick
   end
 end

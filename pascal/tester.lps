@@ -3,14 +3,14 @@
   <ProjectSession>
     <Version Value="11"/>
     <BuildModes Active="Default"/>
-    <Units Count="5">
+    <Units Count="6">
       <Unit0>
         <Filename Value="tester.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="2"/>
-        <TopLine Value="7"/>
-        <CursorPos X="84" Y="16"/>
-        <UsageCount Value="24"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="15"/>
+        <CursorPos Y="22"/>
+        <UsageCount Value="25"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -18,9 +18,9 @@
         <ComponentName Value="LoginForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="56"/>
-        <UsageCount Value="12"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="13"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit1>
       <Unit2>
@@ -28,12 +28,10 @@
         <ComponentName Value="LoginForm"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="1"/>
-        <CursorPos X="68" Y="8"/>
-        <UsageCount Value="12"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="37"/>
+        <CursorPos X="32" Y="37"/>
+        <UsageCount Value="13"/>
       </Unit2>
       <Unit3>
         <Filename Value="/usr/lib/lazarus/lcl/include/control.inc"/>
@@ -48,56 +46,15 @@
         <EditorIndex Value="-1"/>
         <UsageCount Value="10"/>
       </Unit4>
+      <Unit5>
+        <Filename Value="UInstructionForm.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="2"/>
+        <CursorPos X="15" Y="12"/>
+        <UsageCount Value="11"/>
+      </Unit5>
     </Units>
-    <JumpHistory Count="12" HistoryIndex="11">
-      <Position1>
-        <Filename Value="ULoginForm.pas"/>
-      </Position1>
-      <Position2>
-        <Filename Value="ULoginForm.pas"/>
-        <Caret Line="8" Column="67"/>
-      </Position2>
-      <Position3>
-        <Filename Value="ULoginForm.pas"/>
-        <Caret Line="14" Column="90" TopLine="7"/>
-      </Position3>
-      <Position4>
-        <Filename Value="ULoginForm.pas"/>
-        <Caret Line="9" Column="3" TopLine="2"/>
-      </Position4>
-      <Position5>
-        <Filename Value="ULoginForm.pas"/>
-        <Caret Line="10" Column="3" TopLine="2"/>
-      </Position5>
-      <Position6>
-        <Filename Value="ULoginForm.pas"/>
-        <Caret Line="8" Column="66" TopLine="2"/>
-      </Position6>
-      <Position7>
-        <Filename Value="ULoginForm.pas"/>
-        <Caret Line="9" Column="17" TopLine="2"/>
-      </Position7>
-      <Position8>
-        <Filename Value="ULoginForm.pas"/>
-        <Caret Line="8" Column="66" TopLine="2"/>
-      </Position8>
-      <Position9>
-        <Filename Value="ULoginForm.pas"/>
-        <Caret Line="19" TopLine="10"/>
-      </Position9>
-      <Position10>
-        <Filename Value="ULoginForm.pas"/>
-        <Caret Line="16" Column="64"/>
-      </Position10>
-      <Position11>
-        <Filename Value="ULoginForm.pas"/>
-        <Caret Line="19" TopLine="7"/>
-      </Position11>
-      <Position12>
-        <Filename Value="ULoginForm.pas"/>
-        <Caret Line="8" Column="68"/>
-      </Position12>
-    </JumpHistory>
+    <JumpHistory HistoryIndex="-1"/>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes Count="0" ActiveMode=""/>

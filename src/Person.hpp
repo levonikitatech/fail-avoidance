@@ -12,6 +12,14 @@ struct Person
     string email;
     int64_t birthDate;
     int64_t testDate;
+
+    Person(char* name, char* lastName, char* email, int64_t birthDate, int64_t testDate){
+        this->lastName = string(lastName);
+        this->name = string(name);
+        this->email = string(email);
+        this->birthDate = birthDate;
+        this->testDate = testDate; 
+    };
 };
 
 #endif // PERSON_HPP

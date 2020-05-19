@@ -6,7 +6,7 @@ extern "C"  {
     void EXPORTCALL DeleteTester(TesterHandle handle){
         delete handle;
     };
-    AttemptHandle EXPORTCALL TesterAddAttempt(TesterHandle handle){
+    AttemptHandle EXPORTCALL TesterAddAttempt(TesterHandle handle, PersonHandle person){
         return handle->AddAttempt();
     };
     AttemptHandle EXPORTCALL TesterGetAttempt(TesterHandle handle){
@@ -31,5 +31,12 @@ extern "C"  {
     };
     uint8_t EXPORTCALL QuestionGetNumber(QuestionHandle handle){
         return handle->number;
+    }
+    bool EXPORTCALL IsEmailValid(){
+        return 1;
+    }
+
+    PersonHandle EXPORTCALL NewPerson(char* name, char* lastName, char* email, int64_t birthDate, int64_t testDate){
+        return new Person(name, lastName, email, birthDate, testDate);
     }
 }
