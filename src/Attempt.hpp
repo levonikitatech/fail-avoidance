@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include <string>
 #include <vector>
+#include <random>
+#include <algorithm>
 
 #include "Answer.hpp"
 #include "Person.hpp"
@@ -12,15 +14,17 @@
 class Attempt
 {
 private:
-    /* data */
+    void shuffleQuestion(Question *question);
     std::auto_ptr<Person> person;
+    std::random_device rd;
+    std::mt19937 rng;
     uint8_t currentQuestion;
     std::vector<Answer> answers;
 public:
     Attempt();
     ~Attempt();
     Question* NextQuestion(); // TODO: alexEP
-    void GiveAnswer(Answer answer); // TODO: alexEP 
+    void GiveAnswer(Answer answer); // TODO: alexEP
 };
 
 #endif // ATTEMPT_HPP
