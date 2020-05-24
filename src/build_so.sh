@@ -9,5 +9,5 @@ g++ -fPIC -c Attempt.cpp -o Attempt.o
 
 #g++ -fPIC -c Tester.cc -o Tester_cc.o
 gcc -fPIC -x c -c Tester.h -o Tester_c.o
-mv Tester_c.o ../Tester_c.o
-mv Attempt.o ../Attempt.o
+mv Tester_c.o ../pascal/Tester_c.o
+mv Attempt.o ../pascal/Attempt.o
