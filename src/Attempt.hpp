@@ -18,7 +18,8 @@ private:
     std::auto_ptr<Person> person;
     std::random_device rd;
     std::mt19937 rng;
-    uint8_t currentQuestion;
+    uint8_t currentQuestionNumber;
+    Question* currentQuestion = nullptr;
     std::vector<Answer> answers;
 public:
     Attempt();

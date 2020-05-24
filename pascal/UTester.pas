@@ -44,11 +44,13 @@ type
     TAttempt  = class
     private
         cMe: attemptHandle;
+        FLastQuestion: Boolean;
     public
         constructor Create(me: attemptHandle);
         destructor Destroy(); override;
         function NextQuestion(): TQuestion;
         procedure GiveAnswer(answer: UInt8);
+        property IsLastQuestion: Boolean read FLastQuestion; 
     end;
     TTester = class
     private
@@ -74,11 +76,10 @@ function IsEmailValid(email: PChar): Boolean; cdecl;
 
 implementation
 
-{$link Attempt.o}
-{$link Tester_c.o}
-{$linklib libtester.so}
 {$linklib c}
 {$linklib stdc++}
+{$link Tester_c.o}
+{$linklib libtester.so}
 
 function NewTester:testerHandle; cdecl; external;
 procedure DeleteTester(handle :testerHandle); cdecl; external;
@@ -126,7 +127,8 @@ end;
 
 function TAttempt.NextQuestion(): TQuestion;
 begin
-  Result := TQuestion.Create(AttemptNextQuestion(cMe));  
+  Result := TQuestion.Create(AttemptNextQuestion(cMe));
+  FLastQuestion := Result.GetNumber() = 30;  
 end;
 
 procedure TAttempt.GiveAnswer(answer: UInt8);

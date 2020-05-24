@@ -3,11 +3,16 @@
 #include <stdint.h>
 #include <string>
 
+struct QuestionString {
+    std::string answer;
+    uint8_t number;
+};
+
 struct Question
 {
-    std::string first;
-    std::string second;
-    std::string third;
+    QuestionString first;
+    QuestionString second;
+    QuestionString third;
     uint8_t number;
 };
 

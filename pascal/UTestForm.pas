@@ -18,10 +18,10 @@ type
     Button2: TButton;
     Button3: TButton;
     procedure OnShowHandler(Sender: TObject);
+    procedure OnClickHandler(Sender: TObject);
   private
     FContext: PApplicationContext;
     procedure ShowQuestion();
-
   public
     constructor CreateNew(AOwner: TComponent; Num: Integer); override;
     procedure Init(context: PApplicationContext);
@@ -35,11 +35,11 @@ constructor TTestForm.CreateNew(AOwner: TComponent; Num: Integer);
 begin
   inherited CreateNew(AOwner, Num);
   Left := 200;
-  Height := 260;
+  Height := 180;
   Top := 200;
   Width := 340;
   Caption := 'Тестирование';
-  ClientHeight := 260;
+  ClientHeight := 180;
   ClientWidth := 340;
   LCLVersion := '2.0.8.0';
   OnShow := @OnShowHandler;
@@ -58,6 +58,8 @@ begin
     Caption := '';
     Font.Size := 11;
     Parent := TestForm;
+    Tag := 1;
+    OnClick := @OnClickHandler;
   end;
   Button2 := TButton.Create(TestForm);
   with Button2 do
@@ -69,6 +71,8 @@ begin
     Caption := '';
     Font.Size := 11;
     Parent := TestForm;
+    Tag := 2;
+    OnClick := @OnClickHandler;
   end;
   Button3 := TButton.Create(TestForm);
   with Button3 do
@@ -80,6 +84,8 @@ begin
     Caption := '';
     Font.Size := 11;
     Parent := TestForm;
+    Tag := 3;
+    OnClick := @OnClickHandler;
   end;
 end;
 
@@ -95,6 +101,13 @@ end;
 
 procedure TTestForm.OnShowHandler(Sender: TObject);
 begin
-    ShowQuestion();
+    ShowQuestion;
+end;
+
+procedure TTestForm.OnClickHandler(Sender: TObject);
+begin
+    FContext^.Tester.Attempt.GiveAnswer((Sender as TControl).Tag);
+    if not FContext^.Tester.Attempt.IsLastQuestion then
+      ShowQuestion;
 end;
 end.

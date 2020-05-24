@@ -2,8 +2,9 @@
 #include "Questions.hpp"
 
 Attempt::Attempt(){
-    currentQuestion = 0;
+    currentQuestionNumber = 0;
     std::mt19937 rng(rd());
+    std::vector<Answer> answers();
 }
 
 Attempt::~Attempt(){
@@ -11,22 +12,26 @@ Attempt::~Attempt(){
 }
 
 Question* Attempt::NextQuestion(){
-    Question* question = new Question();
-    question->first = questions.at(currentQuestion).first;
-    question->second = questions.at(currentQuestion).second;
-    question->third = questions.at(currentQuestion).third;
-    question->number = questions.at(currentQuestion).number;
-    shuffleQuestion(question);
-    currentQuestion++;
-    return question;
+    if (this->currentQuestion != nullptr) delete this->currentQuestion;
+    this->currentQuestion = new Question();
+    this->currentQuestion->first = questions.at(currentQuestionNumber).first;
+    this->currentQuestion->second = questions.at(currentQuestionNumber).second;
+    this->currentQuestion->third = questions.at(currentQuestionNumber).third;
+    this->currentQuestion->number = questions.at(currentQuestionNumber).number;
+    shuffleQuestion(this->currentQuestion);
+    currentQuestionNumber++;
+    return this->currentQuestion;
 }
 
 void Attempt::GiveAnswer(uint8_t answer){
-
+    if (answer == 0)
+        this->answers.push_back(
+            this->currentQuestion->first.number
+        );
 }
 
 void Attempt::shuffleQuestion(Question *question){
-    std::vector<std::string> temp {question->first, question->second, question->third};
+    std::vector<QuestionString> temp {question->first, question->second, question->third};
     std::shuffle(temp.begin(), temp.end(), this->rng);
     question->first = temp.at(0);
     question->second = temp.at(1);
