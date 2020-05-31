@@ -12,7 +12,8 @@ set (SOURCE_LIB src/Answer.hpp
                 src/Questions.hpp
                 src/Storage.hpp
                 src/Tester.hpp
-                src/Tester.cpp)
+                src/Tester.cpp
+                src/CSVAdapter.hpp)
 
 project(fail_avoidance)
 SET (NEED_TEST NO CACHE BOOL "Do you need tests?")

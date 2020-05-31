@@ -28,6 +28,14 @@ void Attempt::GiveAnswer(uint8_t answer){
         this->answers.push_back(
             this->currentQuestion->first.number
         );
+    else if (answer == 1)
+        this->answers.push_back(
+            this->currentQuestion->second.number 
+        );
+    else
+        this->answers.push_back(
+            this->currentQuestion->third.number 
+        );
 }
 
 void Attempt::shuffleQuestion(Question *question){

@@ -16,3 +16,4 @@ Tester_c
 tester.o
 tester
 Attempt.o
+test_data.csv

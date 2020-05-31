@@ -6,7 +6,7 @@
 #include <string>
 
 #include "Attempt.hpp"
-#include "Storage.hpp"
+#include "CSVAdapter.hpp"
 
 using namespace std;
 
@@ -15,8 +15,9 @@ class Tester
 private:
     /* data */
     static const string INSTRUCTION; 
-    std::auto_ptr<Storage> storage;
+    std::unique_ptr<CSVStorage<Person>> storage;
     Attempt* currentAttempt = nullptr; 
+    
 public:
     Tester(/* args */);
     ~Tester();

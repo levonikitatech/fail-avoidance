@@ -25,9 +25,9 @@ extern "C"  {
         handle->GiveAnswer(answer);
     }
     const char* EXPORTCALL QuestionGetAnswerString(QuestionHandle handle, uint8_t answer){
-        if (answer == 1) return handle->first.c_str();
-        if (answer == 2) return handle->second.c_str();
-        return handle->third.c_str();
+        if (answer == 1) return handle->first.answer.c_str();
+        if (answer == 2) return handle->second.answer.c_str();
+        return handle->third.answer.c_str();
     };
     uint8_t EXPORTCALL QuestionGetNumber(QuestionHandle handle){
         return handle->number;
