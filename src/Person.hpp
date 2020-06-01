@@ -41,9 +41,9 @@ struct Person
         Person person(nullptr,nullptr,nullptr, 0,0);
         person.testResult = std::stoi(record.back());
         record.pop_back(); 
-        person.testDate = std::stoi(record.back());
+        person.testDate = std::stoul(record.back());
         record.pop_back();
-        person.birthDate = std::stoi(record.back());
+        person.birthDate = std::stoul(record.back());
         record.pop_back();
         person.email = record.back();
         record.pop_back();

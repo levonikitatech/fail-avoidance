@@ -19,9 +19,11 @@ type
     Button3: TButton;
     procedure OnShowHandler(Sender: TObject);
     procedure OnClickHandler(Sender: TObject);
+    procedure OnCloseHandler(Sender: TObject; var CloseAction: TCloseAction);
   private
     FContext: PApplicationContext;
     procedure ShowQuestion();
+    procedure HandleResults();
   public
     constructor CreateNew(AOwner: TComponent; Num: Integer); override;
     procedure Init(context: PApplicationContext);
@@ -43,6 +45,7 @@ begin
   ClientWidth := 340;
   LCLVersion := '2.0.8.0';
   OnShow := @OnShowHandler;
+  OnClose := @OnCloseHandler
 end;
 
 procedure TTestForm.Init(context: PApplicationContext); 
@@ -93,10 +96,17 @@ procedure TTestForm.ShowQuestion();
 var 
   question: TQuestion;
 begin
-  question := FContext^.Tester.Attempt.NextQuestion();
+  question := FContext^.Tester.Attempt.NextQuestion;
   Button1.Caption := question.GetAnswerString(1);
   Button2.Caption := question.GetAnswerString(2);
   Button3.Caption := question.GetAnswerString(3);
+end;
+
+procedure TTestForm.HandleResults();
+begin
+  FContext^.Tester.SaveCurrentAttempt;
+  FContext^.InfoForm.Show;
+  Hide;
 end;
 
 procedure TTestForm.OnShowHandler(Sender: TObject);
@@ -108,6 +118,14 @@ procedure TTestForm.OnClickHandler(Sender: TObject);
 begin
     FContext^.Tester.Attempt.GiveAnswer((Sender as TControl).Tag);
     if not FContext^.Tester.Attempt.IsLastQuestion then
-      ShowQuestion;
+      ShowQuestion
+    else 
+      HandleResults;
+end;
+
+
+procedure TTestForm.OnCloseHandler(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  FContext^.LoginForm.Show;
 end;
 end.

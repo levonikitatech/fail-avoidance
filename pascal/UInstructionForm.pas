@@ -12,6 +12,7 @@ type
     InstructionLabel: TLabel;
     ContinueButton: TButton;
     procedure OnContinueButtonClick(Sender: TObject);
+    procedure OnCloseHandler(Sender: TObject; var CloseAction: TCloseAction);
   private
     FContext: PApplicationContext;
 
@@ -35,6 +36,7 @@ begin
   ClientHeight := 260;
   ClientWidth := 500;
   LCLVersion := '2.0.8.0';
+  OnClose := @OnCloseHandler;
 end;
 
 procedure TInstructionForm.Init(context: PApplicationContext);
@@ -72,6 +74,12 @@ end;
 procedure TInstructionForm.OnContinueButtonClick(Sender: TObject);
 begin
   FContext^.Tester.AddAttempt(FContext^.Person);
-  FContext^.TestForm.Show();
+  FContext^.TestForm.Show;
+  Hide;
+end;
+
+procedure TInstructionForm.OnCloseHandler(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  FContext^.LoginForm.Show;
 end;
 end.

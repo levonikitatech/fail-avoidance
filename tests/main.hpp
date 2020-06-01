@@ -17,7 +17,7 @@ class MyTestSuite1 : public CxxTest::TestSuite {
                 std::unique_ptr<Person> person(new Person("1", "2", "3", 0, 1000));
                 person->testResult = 4;
                 count = csv.Count();
-                csv.Append(std::move(person));
+                csv.Append(person.get());
                 csv.Save();
             } 
             {
@@ -25,7 +25,7 @@ class MyTestSuite1 : public CxxTest::TestSuite {
                 TS_ASSERT_EQUALS(csv.Count(), count + 1);
                 std::unique_ptr<Person> person(new Person("1", "2", "3", 0, 1000));
                 person->testResult = 6;
-                csv.Append(std::move(person));
+                csv.Append(person.get());
                 csv.Save();
             }
             {

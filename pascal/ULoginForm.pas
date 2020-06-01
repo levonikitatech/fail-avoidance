@@ -18,6 +18,7 @@ uses
   dateutils, 
   UInstructionForm,
   UTestForm,
+  UInfoForm,
   MyApplicationContext;
 
 
@@ -36,6 +37,7 @@ type
     TestDTP: TDateTimePicker;
     ContinueButton: TButton;
     procedure OnContinueButtonClick(Sender: TObject);
+    procedure OnShowHandler(Sender: TObject);
   private
     NullDate: TDate;
     FContext: PApplicationContext;
@@ -55,17 +57,18 @@ constructor TLoginForm.Create(AOwner: TComponent);
 begin
   inherited Create(AOwner);
   NullDate := SysUtils.MaxDateTime + 1;
-  BirthDTP.Date := NullDate;
-  TestDTP.Date := Now();
   FContext := New(PApplicationContext);
   FContext^.Tester := TTester.Create();
   FContext^.LoginForm := LoginForm;
   UInstructionForm.InstructionForm := TInstructionForm.CreateNew(Application, 1);
   UTestForm.TestForm := TTestForm.CreateNew(Application, 2);
+  UInfoForm.InfoForm := TInfoForm.CreateNew(Application, 3);
   FContext^.InstructionForm := UInstructionForm.InstructionForm;
   UInstructionForm.InstructionForm.Init(FContext);
   FContext^.TestForm := UTestForm.TestForm;
   UTestForm.TestForm.Init(FContext);
+  FContext^.InfoForm := UInfoForm.InfoForm;
+  UInfoForm.InfoForm.Init(FContext);
 end;
 
 procedure TLoginForm.OnContinueButtonClick(Sender: TObject);
@@ -79,7 +82,19 @@ begin
   person.BirthDate := BirthDTP.Date;
   person.TestDate := TestDTP.Date;
   FContext^.Person := person;
-  FContext^.InstructionForm.Show;  
+  FContext^.InstructionForm.Show;
+  Hide;
+end;
+
+procedure TLoginForm.OnShowHandler(Sender: TObject);
+var 
+  person: TPerson;
+begin
+  FirstNameEdit.Text := ''; 
+  LastNameEdit.Text := '';
+  EmailEdit.Text := '';
+  BirthDTP.Date := NullDate;
+  TestDTP.Date := Now();
 end;
 end.
 

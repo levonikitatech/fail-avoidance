@@ -11,6 +11,7 @@ type TApplicationContext = record
     LoginForm: TForm;
     InstructionForm: TForm;
     TestForm: TForm;
+    InfoForm: TForm;
     Person: TPerson;
     Attempt: TAttempt;
 end;

@@ -23,7 +23,7 @@ public:
     CSVStorage(std::string fileName);
     ~CSVStorage();
     bool Save(); 
-    void Append(std::unique_ptr<T> record);
+    void Append(T* record);
     uint64_t Count();
 };
 
@@ -38,13 +38,9 @@ template <class T>
 bool CSVStorage<T>::load(){
     std::ifstream file(this->fileName);
     std::streambuf* file_buf = file.rdbuf();
-    std::cerr<<"Read:0"<<endl;
     if (file)
     {
-        std::cerr<<"Read:1"<<endl;
         if (!file.fail()){
-            std::cerr<<"Read:2"<<endl;
-            std::cerr<<"Read:state:"<<file_buf->in_avail()<<std::endl;
             std::string line = "";
             char current = 0;
             while (file_buf->in_avail() > 0)
@@ -87,9 +83,6 @@ void CSVStorage<T>::handleLine(const string& line){
     if (current != "") {
         buffer.push_back(current);
     }
-    for (auto it = buffer.cbegin(); it != buffer.cend(); it++){
-        std::cerr<<*it<<std::endl;
-    }
     data.push_back(T::to_object(buffer));
 }
 
@@ -97,7 +90,6 @@ template <class T>
 bool CSVStorage<T>::Save(){
     std::ofstream file(this->fileName, ios::out | ios::trunc);
     std::string end = "";
-    std::cerr << "End:" << end <<std::endl; 
     if (file)
     {   
         for (
@@ -108,7 +100,6 @@ bool CSVStorage<T>::Save(){
             file << end << it->to_record(this->delimeter).str();
             end = this->delimeter + "\n";
         }
-        std::cerr << "End:" << end <<std::endl;
         file << end;
         file.close();
         return true;
@@ -118,8 +109,8 @@ bool CSVStorage<T>::Save(){
 }
 
 template <class T>
-void CSVStorage<T>::Append(std::unique_ptr<T> record){
-    this->data.push_back(*record.get());
+void CSVStorage<T>::Append(T* record){
+    this->data.push_back(*record);
 }
 
 template <class T>

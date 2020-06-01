@@ -7,13 +7,16 @@ extern "C"  {
         delete handle;
     };
     AttemptHandle EXPORTCALL TesterAddAttempt(TesterHandle handle, PersonHandle person){
-        return handle->AddAttempt();
+        return handle->AddAttempt(*person);
     };
     AttemptHandle EXPORTCALL TesterGetAttempt(TesterHandle handle){
         return handle->GetAttempt();
     };
     const char* EXPORTCALL TesterGetInstruction(TesterHandle handle){
         return handle->GetInstruction().c_str();
+    };
+    const char* EXPORTCALL TesterDecodeResult(TesterHandle handle, uint8_t result){
+        return handle->DecodeResult(result).c_str();
     };
     void EXPORTCALL TesterSaveCurrentAttempt(TesterHandle handle){
         handle->SaveCurrentAttempt();
@@ -23,6 +26,9 @@ extern "C"  {
     };
     void EXPORTCALL AttemptGiveAnswer(AttemptHandle handle, uint8_t answer){
         handle->GiveAnswer(answer);
+    }
+    uint8_t EXPORTCALL AttemptGetResult(AttemptHandle handle){
+        return handle->GetResult();
     }
     const char* EXPORTCALL QuestionGetAnswerString(QuestionHandle handle, uint8_t answer){
         if (answer == 1) return handle->first.answer.c_str();

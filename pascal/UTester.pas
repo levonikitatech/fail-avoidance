@@ -41,7 +41,7 @@ type
         function GetAnswerString(answer: UInt8): String;
         function GetNumber(): UInt8;
     end;
-    TAttempt  = class
+  TAttempt  = class
     private
         cMe: attemptHandle;
         FLastQuestion: Boolean;
@@ -49,6 +49,7 @@ type
         constructor Create(me: attemptHandle);
         destructor Destroy(); override;
         function NextQuestion(): TQuestion;
+        function GetResult(): UInt8;
         procedure GiveAnswer(answer: UInt8);
         property IsLastQuestion: Boolean read FLastQuestion; 
     end;
@@ -60,7 +61,9 @@ type
         constructor Create();
         destructor Destroy(); override;
         procedure AddAttempt(person: TPerson);
+        procedure SaveCurrentAttempt();
         function GetInstruction(): string;
+        function DecodeResult(resultNum: UInt8): string;
         property Attempt: TAttempt read FAttempt;
     end;
 
@@ -68,8 +71,11 @@ function NewTester:testerHandle; cdecl;
 procedure DeleteTester(handle :testerHandle); cdecl;
 function TesterAddAttempt(handle: testerHandle; person: personHandle): attemptHandle; cdecl;
 function TesterGetInstruction(handle: testerHandle): PChar; cdecl;
+function TesterDecodeResult(handle: testerHandle; Result: UInt8): PChar; cdecl;
+procedure TesterSaveCurrentAttempt(handle: testerHandle) cdecl;
 function AttemptNextQuestion(handle: attemptHandle): questionHandle; cdecl;
 procedure AttemptGiveAnswer(handle: attemptHandle; answer: UInt8); cdecl;
+function AttemptGetResult(handle: attemptHandle): UInt8; cdecl;
 function QuestionGetAnswerString(handle: questionHandle; answer: UInt8): PChar; cdecl;
 function QuestionGetNumber(handle: questionHandle): UInt8; cdecl;
 function IsEmailValid(email: PChar): Boolean; cdecl;
@@ -80,13 +86,16 @@ implementation
 {$linklib stdc++}
 {$link Tester_c.o}
 {$linklib libtester.so}
-
+ 
 function NewTester:testerHandle; cdecl; external;
 procedure DeleteTester(handle :testerHandle); cdecl; external;
 function TesterAddAttempt(handle: testerHandle; person: personHandle): attemptHandle; cdecl; external;
 function TesterGetInstruction(handle: testerHandle): PChar; cdecl; external;
+function TesterDecodeResult(handle: testerHandle; Result: UInt8): PChar; cdecl; external;
+procedure TesterSaveCurrentAttempt(handle: testerHandle) cdecl; external;
 function AttemptNextQuestion(handle: attemptHandle): questionHandle; cdecl; external;
 procedure AttemptGiveAnswer(handle: attemptHandle; answer: UInt8); cdecl; external;
+function AttemptGetResult(handle: attemptHandle): UInt8; cdecl; external;
 function QuestionGetAnswerString(handle: questionHandle; answer: UInt8): PChar; cdecl; external;
 function QuestionGetNumber(handle: questionHandle): UInt8; cdecl; external;
 function IsEmailValid(email: PChar): Boolean; cdecl; external;
@@ -115,6 +124,16 @@ begin
   Result := StrPas(TesterGetInstruction(cMe));
 end;
 
+function TTester.DecodeResult(resultNum: UInt8): String;
+begin
+  Result := StrPas(TesterDecodeResult(cMe, resultNum));
+end;
+
+procedure TTester.SaveCurrentAttempt();
+begin
+  TesterSaveCurrentAttempt(cMe);
+end;
+
 constructor TAttempt.Create(me: attemptHandle);
 begin
   cMe := me;
@@ -134,6 +153,11 @@ end;
 procedure TAttempt.GiveAnswer(answer: UInt8);
 begin
   AttemptGiveAnswer(cMe, answer);
+end;
+
+function TAttempt.GetResult(): UInt8;
+begin
+  Result := AttemptGetResult(cMe);
 end;
 
 constructor TQuestion.Create(me: questionHandle);

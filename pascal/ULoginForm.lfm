@@ -7,6 +7,7 @@ object LoginForm: TLoginForm
   ClientHeight = 400
   ClientWidth = 260
   LCLVersion = '2.0.8.0'
+  OnShow = OnShowHandler
   object InstructionLabel: TLabel
     Left = 0
     Height = 40

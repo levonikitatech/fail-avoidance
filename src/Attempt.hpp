@@ -22,11 +22,12 @@ private:
     Question* currentQuestion = nullptr;
     std::vector<Answer> answers; 
 public:
-    Attempt();
+    Attempt(const Person& person1);
     ~Attempt();
     Question* NextQuestion(); // TODO: alexEP
     void GiveAnswer(Answer answer); // TODO: alexEP
-    std::unique_ptr<Person> GetPerson();
+    uint8_t GetResult();
+    Person* GetPerson();
 };
 
 #endif // ATTEMPT_HPP
