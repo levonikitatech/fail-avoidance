@@ -16,6 +16,7 @@ struct Person
     int64_t birthDate;
     int64_t testDate;
     uint8_t testResult;
+    
     Person(char* name, char* lastName, char* email, int64_t birthDate, int64_t testDate){
         if (lastName != nullptr)
             this->lastName = string(lastName);

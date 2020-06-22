@@ -7,7 +7,8 @@ Attempt::Attempt(const Person& person1){
     person = std::make_unique<Person>(person1);
 }
 
-Attempt::~Attempt(){ 
+Attempt::~Attempt(){
+    delete this->currentQuestion;
 }
 
 Question* Attempt::NextQuestion(){
