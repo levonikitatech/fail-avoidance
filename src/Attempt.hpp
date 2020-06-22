@@ -20,12 +20,12 @@ private:
     std::mt19937 rng;
     uint8_t currentQuestionNumber;
     Question* currentQuestion = nullptr;
-    std::vector<Answer> answers; 
+    std::vector<Answer> answers;
 public:
     Attempt(const Person& person1);
     ~Attempt();
-    Question* NextQuestion(); // TODO: alexEP
-    void GiveAnswer(Answer answer); // TODO: alexEP
+    Question* NextQuestion();
+    void GiveAnswer(Answer answer);
     uint8_t GetResult();
     Person* GetPerson();
 };
